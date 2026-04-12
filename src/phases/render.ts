@@ -37,11 +37,11 @@ export function renderAndSave(
 
   mkdirSync(POSTS_DIR, { recursive: true });
 
-  // File header if new
+  // File header if new — includes Jekyll front matter for GitHub Pages
   if (!existsSync(mdPath)) {
     writeFileSync(
       mdPath,
-      `# Agentic Coding News — ${dateStr}\n\n`,
+      `---\nlayout: default\ntitle: "${dateStr} 에이전틱 코딩 뉴스"\n---\n\n# Agentic Coding News — ${dateStr}\n\n`,
       "utf8",
     );
   }
