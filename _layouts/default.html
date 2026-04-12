@@ -275,18 +275,30 @@
     footer a { color: var(--muted); text-decoration: none; }
     footer a:hover { color: var(--accent); }
 
-    /* ── Index page list ── */
-    nav.posts-list a {
-      display: block;
-      padding: 0.6rem 0;
+    /* ── Index page: date card ── */
+    a.date-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
       border-bottom: 1px solid var(--border);
       color: var(--fg);
       text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
       transition: color 0.15s;
     }
-    nav.posts-list a:hover { color: var(--accent); }
+    a.date-card:first-of-type { border-top: 1px solid var(--border); }
+    a.date-card:hover { color: var(--accent); }
+    a.date-card .date-label {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    a.date-card .date-arrow {
+      font-size: 1rem;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+    a.date-card:hover .date-arrow { color: var(--accent); }
   </style>
 </head>
 <body>
