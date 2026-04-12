@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --fg: #1a1a1a;
+      --fg-secondary: #444;
+      --muted: #666;
+      --border: #e0e0e0;
+      --accent: #2563eb;
+      --accent-dim: rgba(37, 99, 235, 0.08);
+      --card-bg: #fff;
+      --tick-bg: #f5f5f5;
+      --max-w: 720px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d0d0d;
+        --fg: #e5e5e5;
+        --fg-secondary: #b0b0b0;
+        --muted: #888;
+        --border: #2a2a2a;
+        --accent: #60a5fa;
+        --accent-dim: rgba(96, 165, 250, 0.08);
+        --card-bg: #161616;
+        --tick-bg: #131313;
+      }
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.75;
+      padding: 2.5rem 1rem;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: var(--max-w); margin: 0 auto; }
+
+    /* --- Header --- */
+    header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    header h1 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    header p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    /* --- Page title: h1 --- */
+    .content h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+    }
+
+    /* --- Tick header: h2 --- */
+    .content h2 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-top: 3.5rem;
+      margin-bottom: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--accent-dim);
+      border-radius: 6px;
+      display: inline-block;
+    }
+    /* 첫 번째 tick은 h1 바로 아래이므로 top margin 줄임 */
+    .content h1 + h2 {
+      margin-top: 0;
+    }
+
+    /* --- 기사 제목: h3 --- */
+    .content h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+    /* h2(tick) 바로 뒤의 첫 h3는 tick의 일간 요약 제목 — border 불필요 */
+    .content h2 + h3 {
+      border-top: none;
+      padding-top: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    /* --- 본문 --- */
+    .content p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: var(--fg-secondary);
+      line-height: 1.8;
+    }
+
+    /* --- Blockquote: 요약 강조 --- */
+    .content blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0 1.5rem;
+      background: var(--accent-dim);
+      border-radius: 0 8px 8px 0;
+      font-size: 0.92rem;
+      color: var(--fg);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    .content blockquote p {
+      margin-bottom: 0;
+      color: var(--fg);
+    }
+
+    /* --- 링크 --- */
+    .content a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .content a:hover {
+      border-bottom-color: var(--accent);
+    }
+    /* "원문" 링크 pill 스타일 */
+    .content a[href*="x.com"],
+    .content a[href*="twitter.com"],
+    .content a[href*="threads.net"],
+    .content a[href*="github.com"],
+    .content a[href*="reddit.com"] {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent);
+      border-radius: 100px;
+      white-space: nowrap;
+      vertical-align: baseline;
+    }
+    .content a[href*="x.com"]:hover,
+    .content a[href*="twitter.com"]:hover,
+    .content a[href*="threads.net"]:hover,
+    .content a[href*="github.com"]:hover,
+    .content a[href*="reddit.com"]:hover {
+      background: var(--accent);
+      color: var(--bg);
+      border-bottom-color: var(--accent);
+    }
+
+    /* --- 리스트 --- */
+    .content ul, .content ol {
+      margin: 0.75rem 0 1.25rem 1.2rem;
+      font-size: 0.93rem;
+    }
+    .content li {
+      margin-bottom: 0.6rem;
+      line-height: 1.7;
+      color: var(--fg-secondary);
+    }
+    .content li strong {
+      font-weight: 600;
+      color: var(--fg);
+    }
+
+    /* --- HR: Tick 구분선 --- */
+    .content hr {
+      border: none;
+      height: 2px;
+      background: var(--border);
+      margin: 3rem 0 0.5rem;
+    }
+
+    /* --- Footer --- */
+    footer {
+      margin-top: 4rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+
+    /* --- Posts list (index) --- */
+    nav.posts-list { margin: 1.5rem 0; }
+    nav.posts-list a {
+      display: block;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--fg);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    nav.posts-list a:hover { color: var(--accent); }
+    nav.posts-list a span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><a href="{{ '/' | relative_url }}" style="color:var(--fg);text-decoration:none">Agentic Coding News</a></h1>
+      <p>AI 에이전틱 코딩 뉴스 — 3시간마다 자동 수집</p>
+    </header>
+    <main class="content">
+      {{ content }}
+    </main>
+    <footer>
+      <a href="https://github.com/wojacklabs/agentic-coding-news">GitHub</a> &middot; Powered by Claude Code /loop
+    </footer>
+  </div>
+</body>
+</html>

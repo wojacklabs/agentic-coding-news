@@ -37,7 +37,9 @@ Date: ${dateStr}. Below are ${Math.min(candidates.length, MAX_CANDIDATES)} curat
 Write a Korean-language daily article:
 1. 제목 (한국어, 60자 이내)
 2. 요약 (한국어, 1문장 TL;DR)
-3. 본문 (한국어 마크다운, 각 항목에 [N](url) 인용)
+3. 본문 (한국어 마크다운, 각 항목에 [원문](url) 링크 포함)
+   - 섹션 제목은 반드시 ### (h3)로 작성 (## 사용 금지)
+   - "주목할 동향" 같은 부제목도 ###로 작성
 
 Return ONLY valid JSON:
 {"title":"...","summary":"...","bodyMd":"...","usedIndices":[1,3,5]}
