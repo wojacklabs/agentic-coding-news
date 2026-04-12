@@ -3,17 +3,17 @@ layout: default
 title: "AI 에이전트 메모리 아키텍처 — 증상이 아닌 원인을 치료해야"
 ---
 
-<a href="../2026-04-12" style="font-size:0.85rem;color:var(--muted)">&larr; 4월 12일 목록</a>
+<a href="../2026-04-12" class="back-link">&larr; 4월 12일 목록</a>
 
 # AI 에이전트 메모리 아키텍처
 
-<span class="tag tag-x">X</span> 15:28 KST
+<div class="meta-line"><span class="tag tag-x">X</span> 15:28 KST</div>
 
 > 벡터 스토어, 메모리 티어 등 복잡한 레이어가 유행하지만, 근본 문제는 "매번 처음부터 시작한다"는 것입니다.
 
 업계가 AI 에이전트의 메모리 문제를 해결하기 위해 벡터 스토어, 핫/콜드 메모리 티어, 압축·가지치기 등 복잡한 인프라를 쌓고 있지만, 이는 **증상 치료**에 불과하다는 분석이 주목받고 있습니다.
 
-근본 문제는 Claude Code, Codex, Cursor 등 모든 코딩 에이전트가 **세션마다 제로에서 시작**한다는 것이며, 이 구조적 한계를 메모리 레이어로 우회하는 것은 본질적 해결이 아니라는 주장입니다. [원문](https://x.com/inqusit/status/2043170252792746260)
+근본 문제는 Claude Code, Codex, Cursor 등 모든 코딩 에이전트가 **세션마다 제로에서 시작**한다는 것이며, 이 구조적 한계를 메모리 레이어로 우회하는 것은 본질적 해결이 아니라는 주장입니다. <a href="https://x.com/inqusit/status/2043170252792746260" class="source-link">원문</a>
 
 <div class="context-block">
 <h4>왜 중요한가</h4>

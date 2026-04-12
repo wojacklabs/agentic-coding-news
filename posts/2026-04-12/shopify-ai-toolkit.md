@@ -3,17 +3,17 @@ layout: default
 title: "Shopify AI Toolkit 출시 — 코딩 에이전트를 스토어에 바로 연결"
 ---
 
-<a href="../2026-04-12" style="font-size:0.85rem;color:var(--muted)">&larr; 4월 12일 목록</a>
+<a href="../2026-04-12" class="back-link">&larr; 4월 12일 목록</a>
 
 # Shopify AI Toolkit 출시
 
-<span class="tag tag-x">X</span> 15:28 KST
+<div class="meta-line"><span class="tag tag-x">X</span> 15:28 KST</div>
 
 > Shopify가 Claude Code, Cursor, Gemini CLI를 스토어에 직접 연결하는 AI Toolkit을 공개했습니다.
 
 Shopify가 에이전틱 코딩 도구들을 자사 이커머스 플랫폼에 직접 통합하는 AI Toolkit을 출시했습니다. 플러그인 하나만 설치하면 코딩 에이전트가 라이브 API 문서에 접근하고, 실시간 스키마 검증을 수행하며, 터미널에서 직접 스토어 운영 작업을 실행할 수 있습니다.
 
-이는 코딩 에이전트가 단순한 코드 생성을 넘어 **실제 프로덕션 환경과 직접 상호작용**하는 시대가 열렸음을 의미합니다. [원문](https://x.com/newclawtimes/status/2043072353413009913)
+이는 코딩 에이전트가 단순한 코드 생성을 넘어 **실제 프로덕션 환경과 직접 상호작용**하는 시대가 열렸음을 의미합니다. <a href="https://x.com/newclawtimes/status/2043072353413009913" class="source-link">원문</a>
 
 <div class="context-block">
 <h4>왜 중요한가</h4>

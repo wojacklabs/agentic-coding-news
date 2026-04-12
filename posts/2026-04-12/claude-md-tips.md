@@ -3,15 +3,15 @@ layout: default
 title: "CLAUDE.md — 대부분의 개발자가 놓치는 Claude Code 생산성 핵심"
 ---
 
-<a href="../2026-04-12" style="font-size:0.85rem;color:var(--muted)">&larr; 4월 12일 목록</a>
+<a href="../2026-04-12" class="back-link">&larr; 4월 12일 목록</a>
 
 # CLAUDE.md 활용법
 
-<span class="tag tag-x">X</span> 15:28 KST
+<div class="meta-line"><span class="tag tag-x">X</span> 15:28 KST</div>
 
 > 프로젝트별 CLAUDE.md 파일을 설정하지 않으면, 매 세션마다 처음부터 다시 설명해야 합니다.
 
-"대부분의 개발자가 Claude Code에서 생산성을 극대화하는 핵심 하나를 건너뛴다"는 글이 화제입니다. 프로젝트별 CLAUDE.md 파일에 스택, 컨벤션, 제약 조건을 명시하면 Claude가 매 세션마다 제로에서 시작하는 문제를 해결할 수 있습니다. [원문](https://x.com/clutchautomates/status/2043214115544465831)
+"대부분의 개발자가 Claude Code에서 생산성을 극대화하는 핵심 하나를 건너뛴다"는 글이 화제입니다. 프로젝트별 CLAUDE.md 파일에 스택, 컨벤션, 제약 조건을 명시하면 Claude가 매 세션마다 제로에서 시작하는 문제를 해결할 수 있습니다. <a href="https://x.com/clutchautomates/status/2043214115544465831" class="source-link">원문</a>
 
 <div class="context-block">
 <h4>왜 중요한가</h4>

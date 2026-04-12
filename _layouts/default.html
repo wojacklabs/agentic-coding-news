@@ -9,89 +9,78 @@
       --bg: #fafafa;
       --fg: #1a1a1a;
       --fg-secondary: #444;
-      --muted: #666;
-      --border: #e0e0e0;
+      --muted: #888;
+      --border: #e5e5e5;
       --accent: #2563eb;
-      --accent-dim: rgba(37, 99, 235, 0.08);
+      --accent-dim: rgba(37, 99, 235, 0.06);
       --card-bg: #fff;
-      --tick-bg: #f5f5f5;
-      --max-w: 720px;
+      --max-w: 680px;
     }
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #0d0d0d;
         --fg: #e5e5e5;
-        --fg-secondary: #b0b0b0;
-        --muted: #888;
-        --border: #2a2a2a;
+        --fg-secondary: #aaa;
+        --muted: #666;
+        --border: #222;
         --accent: #60a5fa;
-        --accent-dim: rgba(96, 165, 250, 0.08);
-        --card-bg: #161616;
-        --tick-bg: #131313;
+        --accent-dim: rgba(96, 165, 250, 0.07);
+        --card-bg: #151515;
       }
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans KR', sans-serif;
       background: var(--bg);
       color: var(--fg);
-      line-height: 1.75;
-      padding: 2.5rem 1rem;
+      line-height: 1.7;
+      padding: 2.5rem 1.25rem;
       font-size: 15px;
       -webkit-font-smoothing: antialiased;
     }
 
     .container { max-width: var(--max-w); margin: 0 auto; }
 
-    /* --- Header --- */
+    /* ── Header ── */
     header {
       margin-bottom: 2.5rem;
       padding-bottom: 1rem;
       border-bottom: 1px solid var(--border);
     }
-    header h1 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-    header p {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.25rem;
-    }
+    header h1 { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; }
+    header h1 a { color: var(--fg); text-decoration: none; }
+    header p { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
 
-    /* --- Page title: h1 --- */
+    /* ── Page title ── */
     .content h1 {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 700;
       letter-spacing: -0.03em;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
-    /* --- Tick header: h2 --- */
+    /* ── Tick label ── */
     .content h2 {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--accent);
-      margin-top: 3.5rem;
-      margin-bottom: 0.75rem;
-      padding: 0.5rem 0.75rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      padding: 0.35rem 0.65rem;
       background: var(--accent-dim);
-      border-radius: 6px;
+      border: 1px solid var(--accent);
+      border-radius: 5px;
       display: inline-block;
     }
-    /* 첫 번째 tick은 h1 바로 아래이므로 top margin 줄임 */
-    .content h1 + h2 {
-      margin-top: 0;
-    }
+    .content h1 + h2 { margin-top: 0; }
 
-    /* --- 기사 제목: h3 --- */
+    /* ── Section heading (상세 페이지) ── */
     .content h3 {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 600;
       margin-top: 2rem;
       margin-bottom: 0.4rem;
@@ -100,205 +89,217 @@
       padding-top: 1.25rem;
       border-top: 1px solid var(--border);
     }
-    /* h2(tick) 바로 뒤의 첫 h3는 tick의 일간 요약 제목 — border 불필요 */
     .content h2 + h3 {
       border-top: none;
       padding-top: 0.5rem;
       margin-top: 0.75rem;
     }
 
-    /* --- 본문 --- */
+    /* ── Body text ── */
     .content p {
       margin-bottom: 1rem;
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       color: var(--fg-secondary);
       line-height: 1.8;
     }
 
-    /* --- Blockquote: 요약 강조 --- */
+    /* ── Blockquote (요약) ── */
     .content blockquote {
-      border-left: 3px solid var(--accent);
-      padding: 0.75rem 1rem;
+      border-left: 2px solid var(--accent);
+      padding: 0.6rem 1rem;
       margin: 0.75rem 0 1.5rem;
       background: var(--accent-dim);
-      border-radius: 0 8px 8px 0;
-      font-size: 0.92rem;
-      color: var(--fg);
-      font-weight: 500;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.88rem;
+      color: var(--fg-secondary);
+      font-weight: 400;
       line-height: 1.7;
     }
     .content blockquote p {
       margin-bottom: 0;
-      color: var(--fg);
+      color: var(--fg-secondary);
     }
 
-    /* --- 링크 --- */
+    /* ── Links ── */
     .content a {
       color: var(--accent);
       text-decoration: none;
-      font-weight: 500;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.15s, background 0.15s;
+      transition: color 0.15s;
     }
-    .content a:hover {
-      border-bottom-color: var(--accent);
-    }
-    /* "원문" 링크 pill 스타일 */
-    .content a[href*="x.com"],
-    .content a[href*="twitter.com"],
-    .content a[href*="threads.net"],
-    .content a[href*="github.com"],
-    .content a[href*="reddit.com"] {
-      font-size: 0.78rem;
+    .content a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ── Source link pill ── */
+    .source-link {
+      font-size: 0.75rem;
       font-weight: 600;
-      padding: 0.15rem 0.5rem;
+      padding: 0.12rem 0.5rem;
       background: var(--accent-dim);
       border: 1px solid var(--accent);
       border-radius: 100px;
+      color: var(--accent);
+      text-decoration: none !important;
       white-space: nowrap;
-      vertical-align: baseline;
+      transition: background 0.15s, color 0.15s;
     }
-    .content a[href*="x.com"]:hover,
-    .content a[href*="twitter.com"]:hover,
-    .content a[href*="threads.net"]:hover,
-    .content a[href*="github.com"]:hover,
-    .content a[href*="reddit.com"]:hover {
+    .source-link:hover {
       background: var(--accent);
       color: var(--bg);
-      border-bottom-color: var(--accent);
     }
 
-    /* --- 리스트 --- */
+    /* ── Lists ── */
     .content ul, .content ol {
-      margin: 0.75rem 0 1.25rem 1.2rem;
+      margin: 0.5rem 0 1.25rem 1.2rem;
       font-size: 0.93rem;
     }
     .content li {
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
       line-height: 1.7;
       color: var(--fg-secondary);
     }
-    .content li strong {
-      font-weight: 600;
-      color: var(--fg);
-    }
+    .content li strong { font-weight: 600; color: var(--fg); }
 
-    /* --- Source tags --- */
+    /* ── HR: hidden (Tick h2 handles separation) ── */
+    .content hr { display: none; }
+
+    /* ── Source tags ── */
     .tag {
       display: inline-block;
       font-size: 0.6rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      padding: 0.12rem 0.45rem;
-      border-radius: 4px;
-      margin-right: 0.25rem;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      margin-right: 0.2rem;
       vertical-align: middle;
       line-height: 1.4;
     }
     .tag-x { background: #1d9bf0; color: #fff; }
-    .tag-threads { background: #000; color: #fff; border: 1px solid #444; }
+    .tag-threads { background: #1a1a1a; color: #e5e5e5; border: 1px solid #555; }
     .tag-hn { background: #ff6600; color: #fff; }
     .tag-reddit { background: #ff4500; color: #fff; }
     .tag-rss { background: #f59e0b; color: #1a1a1a; }
+    @media (prefers-color-scheme: light) {
+      .tag-threads { background: #f0f0f0; color: #1a1a1a; border: 1px solid #ccc; }
+    }
 
-    /* --- Article card (목록용) --- */
+    /* ── Article card (목록) ── */
     .article-card {
-      padding: 1.25rem 0;
+      padding: 1rem 0 1rem 0.75rem;
       border-bottom: 1px solid var(--border);
+      border-left: 2px solid transparent;
+      transition: border-left-color 0.15s;
     }
     .article-card:last-child { border-bottom: none; }
+    .article-card:hover { border-left-color: var(--accent); }
     .article-card h4 {
-      font-size: 1rem;
+      font-size: 1.02rem;
       font-weight: 600;
-      margin: 0.3rem 0 0.25rem;
+      margin: 0.3rem 0 0.2rem;
+      line-height: 1.5;
     }
     .article-card h4 a {
       color: var(--fg);
       text-decoration: none;
       transition: color 0.15s;
     }
+    .article-card h4 a::after {
+      content: " \2192";
+      font-size: 0.8em;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
     .article-card h4 a:hover { color: var(--accent); }
+    .article-card h4 a:hover::after { color: var(--accent); }
     .article-card .summary {
-      font-size: 0.88rem;
-      color: var(--fg-secondary);
+      font-size: 0.85rem;
+      color: var(--muted);
       line-height: 1.6;
       margin: 0;
     }
 
-    /* --- 상세 페이지: 배경 지식 블록 --- */
+    /* ── Detail page: back link ── */
+    .back-link {
+      display: inline-block;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none !important;
+      margin-bottom: 1.5rem;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    /* ── Detail page: meta line (tags + time) ── */
+    .meta-line {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ── Detail page: context block ── */
     .context-block {
-      margin: 1.5rem 0;
-      padding: 1rem 1.25rem;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.9rem;
+      margin: 2rem 0 1.5rem;
+      padding: 0.85rem 1.1rem;
+      border-left: 3px solid var(--muted);
+      border-radius: 0 6px 6px 0;
+      font-size: 0.85rem;
       line-height: 1.75;
+      background: none;
     }
     .context-block h4 {
-      font-size: 0.78rem;
+      font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
     }
     .context-block p {
       color: var(--fg-secondary);
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.85rem;
     }
     .context-block p:last-child { margin-bottom: 0; }
 
-    /* --- HR: Tick 구분선 --- */
-    .content hr {
-      border: none;
-      height: 2px;
-      background: var(--border);
-      margin: 3rem 0 0.5rem;
-    }
-
-    /* --- Footer --- */
+    /* ── Footer ── */
     footer {
       margin-top: 4rem;
       padding-top: 1rem;
       border-top: 1px solid var(--border);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--muted);
     }
-    footer a { color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
 
-    /* --- Posts list (index) --- */
-    nav.posts-list { margin: 1.5rem 0; }
+    /* ── Index page list ── */
     nav.posts-list a {
       display: block;
-      padding: 0.75rem 0;
+      padding: 0.6rem 0;
       border-bottom: 1px solid var(--border);
       color: var(--fg);
       text-decoration: none;
       font-weight: 500;
+      font-size: 0.95rem;
       transition: color 0.15s;
     }
     nav.posts-list a:hover { color: var(--accent); }
-    nav.posts-list a span {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-left: 0.5rem;
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1><a href="{{ '/' | relative_url }}" style="color:var(--fg);text-decoration:none">Agentic Coding News</a></h1>
+      <h1><a href="{{ '/' | relative_url }}">Agentic Coding News</a></h1>
       <p>AI 에이전틱 코딩 뉴스 — 3시간마다 자동 수집</p>
     </header>
     <main class="content">
       {{ content }}
     </main>
     <footer>
-      <a href="https://github.com/wojacklabs/agentic-coding-news">GitHub</a> &middot; Powered by Claude Code /loop
+      <a href="https://github.com/wojacklabs/agentic-coding-news">GitHub</a> &middot; Powered by Claude Code
     </footer>
   </div>
 </body>

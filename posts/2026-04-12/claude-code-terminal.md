@@ -3,17 +3,17 @@ layout: default
 title: "Claude Code 쓰고 나면 돌아갈 수 없다 — 터미널 전환기"
 ---
 
-<a href="../2026-04-12" style="font-size:0.85rem;color:var(--muted)">&larr; 4월 12일 목록</a>
+<a href="../2026-04-12" class="back-link">&larr; 4월 12일 목록</a>
 
 # "Claude Code 쓰고 나면 돌아갈 수 없다"
 
-<span class="tag tag-x">X</span> <span class="tag tag-threads">Threads</span> 19:10 KST
+<div class="meta-line"><span class="tag tag-x">X</span> <span class="tag tag-threads">Threads</span> 19:10 KST</div>
 
 > 터미널에서 Claude Code를 사용하기 시작한 개발자들이 이전 워크플로우로 돌아갈 수 없다고 고백하고 있습니다.
 
 터미널 기반 Claude Code를 도입한 개발자들의 사용 후기가 소셜에서 빠르게 확산되고 있습니다. 핵심 차별점으로 꼽히는 것은 단순 코드 생성이 아니라, **git 작업과 파일 간 의존성을 정확히 파악한 수정 제안**입니다.
 
-기존 IDE 기반 AI 도우미(GitHub Copilot 등)와 달리, Claude Code는 프로젝트 전체의 맥락을 이해하고 multi-file 변경을 한 번에 제안할 수 있다는 점이 전환의 주요 동기로 보입니다. [원문](https://x.com/nakamachi_AI/status/2043269776005325113)
+기존 IDE 기반 AI 도우미(GitHub Copilot 등)와 달리, Claude Code는 프로젝트 전체의 맥락을 이해하고 multi-file 변경을 한 번에 제안할 수 있다는 점이 전환의 주요 동기로 보입니다. <a href="https://x.com/nakamachi_AI/status/2043269776005325113" class="source-link">원문</a>
 
 <div class="context-block">
 <h4>왜 중요한가</h4>

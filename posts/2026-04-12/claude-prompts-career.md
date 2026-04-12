@@ -3,15 +3,15 @@ layout: default
 title: "Claude 프롬프트 10선 — 커리어를 미래 보장하는 법"
 ---
 
-<a href="../2026-04-12" style="font-size:0.85rem;color:var(--muted)">&larr; 4월 12일 목록</a>
+<a href="../2026-04-12" class="back-link">&larr; 4월 12일 목록</a>
 
 # Claude 프롬프트 10선
 
-<span class="tag tag-threads">Threads</span> 19:10 KST
+<div class="meta-line"><span class="tag tag-threads">Threads</span> 19:10 KST</div>
 
 > Threads #aithreads에서 "대체 불가능한 인재로 남기 위한" Claude 활용 프롬프트 10개가 공유되었습니다.
 
-Threads의 #aithreads 커뮤니티에서 "Claude가 당신의 커리어를 하룻밤 만에 미래 보장할 수 있다"는 주제의 프롬프트 시리즈가 인기를 끌고 있습니다. 코드 리뷰 자동화부터 시스템 설계 검증까지, 실무에서 바로 쓸 수 있는 프롬프트가 정리되어 있습니다. [원문](https://www.threads.net/@promptprism/post/DXBtXzxCWqh)
+Threads의 #aithreads 커뮤니티에서 "Claude가 당신의 커리어를 하룻밤 만에 미래 보장할 수 있다"는 주제의 프롬프트 시리즈가 인기를 끌고 있습니다. 코드 리뷰 자동화부터 시스템 설계 검증까지, 실무에서 바로 쓸 수 있는 프롬프트가 정리되어 있습니다. <a href="https://www.threads.net/@promptprism/post/DXBtXzxCWqh" class="source-link">원문</a>
 
 <div class="context-block">
 <h4>왜 중요한가</h4>
