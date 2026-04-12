@@ -183,6 +183,74 @@
       color: var(--fg);
     }
 
+    /* --- Source tags --- */
+    .tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.12rem 0.45rem;
+      border-radius: 4px;
+      margin-right: 0.25rem;
+      vertical-align: middle;
+      line-height: 1.4;
+    }
+    .tag-x { background: #1d9bf0; color: #fff; }
+    .tag-threads { background: #000; color: #fff; border: 1px solid #444; }
+    .tag-hn { background: #ff6600; color: #fff; }
+    .tag-reddit { background: #ff4500; color: #fff; }
+    .tag-rss { background: #f59e0b; color: #1a1a1a; }
+
+    /* --- Article card (목록용) --- */
+    .article-card {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-card:last-child { border-bottom: none; }
+    .article-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0.3rem 0 0.25rem;
+    }
+    .article-card h4 a {
+      color: var(--fg);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .article-card h4 a:hover { color: var(--accent); }
+    .article-card .summary {
+      font-size: 0.88rem;
+      color: var(--fg-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* --- 상세 페이지: 배경 지식 블록 --- */
+    .context-block {
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+    .context-block h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .context-block p {
+      color: var(--fg-secondary);
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .context-block p:last-child { margin-bottom: 0; }
+
     /* --- HR: Tick 구분선 --- */
     .content hr {
       border: none;
