@@ -56,7 +56,7 @@ export async function runCollect(): Promise<CollectResult> {
       };
     })(),
     (async (): Promise<SourceResult> => {
-      const posts = await fetchHnPosts({ keywords: HN_KEYWORDS });
+      const posts = await fetchHnPosts({ keywords: HN_KEYWORDS, hitsPerPage: 50 });
       const ins = insertPosts(db, posts);
       return {
         source: "hn",
@@ -67,7 +67,12 @@ export async function runCollect(): Promise<CollectResult> {
       };
     })(),
     (async (): Promise<SourceResult> => {
-      const posts = await fetchRedditPosts(REDDIT_SUBS);
+      // Reddit: hot 50 + new 50 = 100 per sub
+      const [hotPosts, newPosts] = await Promise.all([
+        fetchRedditPosts(REDDIT_SUBS, { limit: 50, sort: "hot" }),
+        fetchRedditPosts(REDDIT_SUBS, { limit: 50, sort: "new" }),
+      ]);
+      const posts = [...hotPosts, ...newPosts];
       const ins = insertPosts(db, posts);
       return {
         source: "reddit",

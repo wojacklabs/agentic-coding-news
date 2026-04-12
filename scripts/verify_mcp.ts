@@ -40,7 +40,7 @@ for (const t of CHROME_MCP_TOOLS) {
 console.log(`✓ CHROME_MCP_TOOLS (${CHROME_MCP_TOOLS.length} tools)`);
 
 // (2) Scroll/timeout constants consistency
-assert(SCROLL_BUDGET.perSourceMax === 20, "perSourceMax should be 20");
+assert(SCROLL_BUDGET.perSourceMax === 25, "perSourceMax should be 25");
 const budgetMath =
   SCROLL_BUDGET.preScanMax +
   SCROLL_BUDGET.deepScanPerKeywordMax * SCROLL_BUDGET.deepScanKeywordCount +

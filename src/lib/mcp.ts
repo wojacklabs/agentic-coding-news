@@ -34,11 +34,11 @@ export const CHROME_MCP_TOOLS: readonly ChromeMcpTool[] = [
  *   = 6 + 4*3 + 2 = 20 = perSourceMax
  */
 export const SCROLL_BUDGET = {
-  perSourceMax: 20,
-  preScanMax: 6,
-  deepScanPerKeywordMax: 4,
-  deepScanKeywordCount: 3,
-  bufferMax: 2,
+  perSourceMax: 25,       // X: 10+5*3=25 (largest)
+  preScanMax: 10,         // X: 10, Threads: 8
+  deepScanPerKeywordMax: 5,
+  deepScanKeywordCount: 3, // X: 3, Threads: 2
+  bufferMax: 0,
 } as const;
 
 export const TIMEOUTS = {
@@ -162,7 +162,7 @@ export const X_PLAN: NavigationPlan = {
     },
     {
       kind: "scroll",
-      times: SCROLL_BUDGET.preScanMax,
+      times: 10, // pre-scan: 10 scrolls
       pauseMs: TIMEOUTS.waitAfterScrollMs,
     },
     { kind: "extract", jsSnippetRef: "x.timeline.v1", saveTo: "x.prescan" },
@@ -175,7 +175,7 @@ export const X_PLAN: NavigationPlan = {
     },
     {
       kind: "scroll",
-      times: SCROLL_BUDGET.deepScanPerKeywordMax,
+      times: 5, // deep-scan: 5 scrolls per keyword × 3 keywords
       pauseMs: TIMEOUTS.waitAfterScrollMs,
     },
     {
@@ -185,7 +185,7 @@ export const X_PLAN: NavigationPlan = {
     },
   ],
   budget: {
-    scrollsMax: SCROLL_BUDGET.perSourceMax,
+    scrollsMax: 25, // 10 + 5*3 = 25
     timeoutMs: TIMEOUTS.perSourceHardMs,
   },
 };
@@ -197,12 +197,12 @@ export const THREADS_PLAN: NavigationPlan = {
   preScanSteps: [
     {
       kind: "navigate",
-      url: "https://www.threads.net/",
+      url: "https://www.threads.net/search?q=aithreads&serp_type=tags",
       waitMs: TIMEOUTS.navigateMs,
     },
     {
       kind: "scroll",
-      times: SCROLL_BUDGET.preScanMax,
+      times: 8, // pre-scan: 8 scrolls on #aithreads
       pauseMs: TIMEOUTS.waitAfterScrollMs,
     },
     {
@@ -219,7 +219,7 @@ export const THREADS_PLAN: NavigationPlan = {
     },
     {
       kind: "scroll",
-      times: SCROLL_BUDGET.deepScanPerKeywordMax,
+      times: 5, // deep-scan: 5 scrolls per keyword × 2 keywords
       pauseMs: TIMEOUTS.waitAfterScrollMs,
     },
     {
@@ -229,7 +229,7 @@ export const THREADS_PLAN: NavigationPlan = {
     },
   ],
   budget: {
-    scrollsMax: SCROLL_BUDGET.perSourceMax,
+    scrollsMax: 18, // 8 + 5*2 = 18
     timeoutMs: TIMEOUTS.perSourceHardMs,
   },
 };
