@@ -1,0 +1,14 @@
+node_modules/
+bun.lockb
+.env
+.env.local
+db/*.db
+db/*.db-journal
+db/*.db-wal
+db/*.db-shm
+dist/
+.DS_Store
+*.log
+data/cache/
+data/raw/
+logs/

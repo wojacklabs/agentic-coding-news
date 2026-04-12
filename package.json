@@ -1,0 +1,34 @@
+{
+  "name": "agentic-coding-news",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "init:db": "bun run scripts/init_db.ts",
+    "verify:db": "bun run scripts/verify_db.ts",
+    "verify:lib": "bun run scripts/verify_lib.ts",
+    "verify:rss": "bun run scripts/verify_rss.ts",
+    "verify:mcp": "bun run scripts/verify_mcp.ts",
+    "verify:x": "bun run scripts/verify_x.ts",
+    "verify:threads": "bun run scripts/verify_threads.ts",
+    "verify:hn-reddit": "bun run scripts/verify_hn_reddit.ts",
+    "verify:collect": "bun run scripts/verify_collect.ts",
+    "verify:keyword": "bun run scripts/verify_keyword.ts",
+    "verify:pipeline": "bun run scripts/verify_pipeline.ts",
+    "collect": "bun run src/phases/collect.ts",
+    "embed": "bun run src/phases/embed.ts",
+    "dedupe": "bun run src/phases/dedupe.ts",
+    "ingest:mcp": "bun run src/phases/ingest_mcp.ts",
+    "pipeline": "bun run src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.5.0",
+    "sqlite-vec": "^0.1.6"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "happy-dom": "^15.7.0",
+    "typescript": "^5.5.0"
+  }
+}
