@@ -7,7 +7,7 @@ title: "Claude Code를 개인 튜터로 변환하는 플러그인"
 
 # Claude Code 튜터 플러그인
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 05:10 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 09:51 KST</div>
 
 > 프로젝트 코드를 분석해 사용자의 학습 단계에 맞춘 설명을 제공하는 **Claude Code 플러그인**이 공개되었습니다.
 

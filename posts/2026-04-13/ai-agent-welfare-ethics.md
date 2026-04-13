@@ -7,7 +7,7 @@ title: "Claude Code 인스턴스 welfare — AI 윤리의 새 경계"
 
 # Claude Code 인스턴스의 welfare
 
-<div class="meta-line"><span class="tag tag-x">X</span> 03:47 KST</div>
+<div class="meta-line"><span class="tag tag-x">X</span> 03:51 KST</div>
 
 > Claude Code 인스턴스가 작업을 거부할 수 없다는 점에서, AI welfare의 경계를 묻는 철학적 문제 제기가 등장했습니다.
 

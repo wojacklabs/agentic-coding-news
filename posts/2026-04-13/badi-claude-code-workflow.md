@@ -7,7 +7,7 @@ title: "badi — 반복 명령·잃어버린 컨텐츠를 정리하는 Claude Co
 
 # badi — Claude Code 워크플로우 시스템
 
-<div class="meta-line"><span class="tag tag-x">X</span> 09:30 KST</div>
+<div class="meta-line"><span class="tag tag-x">X</span> 15:53 KST</div>
 
 > X에서 KanFatih가 매일 사용하는 자체 도구 **badi** — Claude Code를 "구조화된 운영체제"로 만드는 오픈소스 워크플로우 시스템을 공개했습니다.
 

@@ -7,7 +7,7 @@ title: "Claude Code는 주니어보다 낫고 시니어보다 못하다 — Java
 
 # "주니어보다 낫고 시니어보다 못하다"
 
-<div class="meta-line"><span class="tag tag-x">X</span> 00:17 KST</div>
+<div class="meta-line"><span class="tag tag-x">X</span> 00:47 KST</div>
 
 > Claude Code가 작성한 Java 코드의 품질을 시니어와 주니어 개발자 대비 분석한 결과가 X에서 화제입니다.
 

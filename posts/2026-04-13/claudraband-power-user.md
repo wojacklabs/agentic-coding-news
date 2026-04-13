@@ -7,7 +7,7 @@ title: "Show HN: Claudraband — Claude Code Power User를 위한 래퍼"
 
 # Claudraband — Claude Code Power User 래퍼
 
-<div class="meta-line"><span class="tag tag-hn">HN</span> Show HN · 03:47 KST</div>
+<div class="meta-line"><span class="tag tag-hn">HN</span> Show HN · 03:51 KST</div>
 
 > Claude Code TUI를 제어된 터미널로 감싸 장기 실행 워크플로우를 가능하게 하는 도구가 Hacker News에 공개되었습니다.
 

@@ -7,7 +7,7 @@ title: "AI 에이전트가 '당신을 아는' 개인 컨텍스트 레이어"
 
 # 개인 컨텍스트 레이어
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 03:47 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 03:51 KST</div>
 
 > "AI 에이전트를 아무리 써도 매 세션마다 제로에서 시작한다"는 문제를 해결하기 위한 개인 맞춤 컨텍스트 레이어가 공개되었습니다.
 

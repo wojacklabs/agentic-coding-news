@@ -7,7 +7,7 @@ title: "Claude Code 'Adaptive Thinking 비활성화' settings.json 4줄 — 성�
 
 # Adaptive Thinking 비활성화 settings
 
-<div class="meta-line"><span class="tag tag-threads">Threads</span> <span class="tag tag-reddit">Reddit</span> 09:30 KST</div>
+<div class="meta-line"><span class="tag tag-threads">Threads</span> <span class="tag tag-reddit">Reddit</span> 15:53 KST</div>
 
 > Threads와 Reddit에서 동시에 등장한 주제 — 최근 Claude Code의 "Adaptive Thinking" 기능이 모델 성능을 떨어뜨린다는 분석과, 이를 비활성화하는 settings.json 4줄 설정.
 

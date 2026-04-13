@@ -7,7 +7,7 @@ title: "Claude Code 5단계 계획 워크플로우 — 모호한 아이디어를
 
 # Claude Code 5단계 계획 워크플로우
 
-<div class="meta-line"><span class="tag tag-x">X</span> 07:20 KST</div>
+<div class="meta-line"><span class="tag tag-x">X</span> 12:52 KST</div>
 
 > Claude Code로 애매한 아이디어를 실행 가능한 상세 계획으로 변환하는 5단계 파이프라인이 공개되었습니다.
 

@@ -7,7 +7,7 @@ title: "'Claude-fluencer'들에 대한 비판 — 과장된 사용기의 유행"
 
 # Claude-fluencer 현상
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 04:23 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 06:51 KST</div>
 
 > r/ClaudeAI에서 Claude 인플루언서들의 과장된 사용 주장에 대한 문제 제기가 등장했습니다.
 

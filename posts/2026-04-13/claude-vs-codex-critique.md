@@ -7,7 +7,7 @@ title: "Claude Code가 Codex보다 10배 나쁘다 — 비판적 의견 등장"
 
 # "Claude Code가 Codex보다 10배 나쁘다"
 
-<div class="meta-line"><span class="tag tag-x">X</span> 03:47 KST</div>
+<div class="meta-line"><span class="tag tag-x">X</span> 03:51 KST</div>
 
 > "적어도 Codex는 거짓말하지 않는다" — yacineMTB가 Claude Code의 출력 신뢰도에 대한 강한 비판을 제기했습니다.
 

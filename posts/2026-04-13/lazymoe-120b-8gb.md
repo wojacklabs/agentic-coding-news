@@ -7,7 +7,7 @@ title: "LazyMoE — 120B LLM을 8GB RAM에서 GPU 없이 실행"
 
 # 120B 모델을 8GB에서
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/LocalLLaMA · 04:23 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/LocalLLaMA · 06:51 KST</div>
 
 > lazy expert loading + TurboQuan 조합으로 120B 파라미터 MoE 모델을 8GB RAM에서 GPU 없이 구동하는 방식이 공개되었습니다.
 

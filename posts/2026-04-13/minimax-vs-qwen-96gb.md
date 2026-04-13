@@ -7,7 +7,7 @@ title: "MiniMax-M2.7 vs Qwen3.5-122B-A10B — 96GB VRAM 풀 offload 벤치마크
 
 # MiniMax vs Qwen 로컬 벤치마크
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/LocalLLaMA · 05:10 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/LocalLLaMA · 09:51 KST</div>
 
 > 96GB VRAM 환경에서 두 오픈 MoE 모델의 풀 offload 성능·속도·품질을 비교한 벤치마크가 r/LocalLLaMA에서 score 21로 주목받고 있습니다.
 

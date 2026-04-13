@@ -7,7 +7,7 @@ title: "STEM 대학생들, AI에 무조건 찬성하지 않는다 — 교수의 
 
 # STEM 학생들의 AI에 대한 건전한 회의
 
-<div class="meta-line"><span class="tag tag-threads">Threads</span> #aithreads · 03:47 KST</div>
+<div class="meta-line"><span class="tag tag-threads">Threads</span> #aithreads · 03:51 KST</div>
 
 > 한 STEM 대학 교수가 학생들이 AI 도구에 전원 열광하지 않는다는 현장 관찰을 공유했습니다.
 

@@ -7,7 +7,7 @@ title: "Claude Code 카드뉴스+영상화 Skill 공개 — 디자인 못해도 
 
 # 카드뉴스+영상 Skill
 
-<div class="meta-line"><span class="tag tag-threads">Threads</span> #aithreads · 05:10 KST</div>
+<div class="meta-line"><span class="tag tag-threads">Threads</span> #aithreads · 09:51 KST</div>
 
 > 디자인 전문성 없이 Claude Code/Codex로 카드뉴스와 영상을 제작할 수 있게 해주는 **Skill 패키지**가 Threads에서 공개되어 score 115를 기록했습니다.
 

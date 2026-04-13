@@ -7,7 +7,7 @@ title: "GitHub에서 OPENAI_API_KEY 검색하면 벌어지는 일"
 
 # GitHub API 키 유출 실태
 
-<div class="meta-line"><span class="tag tag-threads">Threads</span> #aithreads · 00:17 KST</div>
+<div class="meta-line"><span class="tag tag-threads">Threads</span> #aithreads · 00:47 KST</div>
 
 > "GitHub에서 OPENAI_API_KEY를 검색해봤더니 충격적" — AI 시대의 API 키 보안 경각심이 커뮤니티에서 확산 중입니다.
 

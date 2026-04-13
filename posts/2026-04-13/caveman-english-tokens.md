@@ -7,7 +7,7 @@ title: "'Caveman English'로 토큰 아끼기는 역효과일 수 있다"
 
 # Caveman English의 함정
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 04:45 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 09:01 KST</div>
 
 > 프롬프트를 극단적으로 짧게 줄이면 토큰은 아끼지만 모델 응답 품질이 떨어져 결과적으로 더 많은 반복 호출이 필요해진다는 분석.
 

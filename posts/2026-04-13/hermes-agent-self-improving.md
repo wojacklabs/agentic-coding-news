@@ -7,7 +7,7 @@ title: "hermes-agent 자기개선 루프 — OpenClaw 대비 7가지 차별점"
 
 # hermes-agent의 Self-Improving Loop
 
-<div class="meta-line"><span class="tag tag-threads">Threads</span> #aithreads · 05:10 KST</div>
+<div class="meta-line"><span class="tag tag-threads">Threads</span> #aithreads · 09:51 KST</div>
 
 > OpenClaw 유저들이 hermes-agent로 이동하는 이유 — 자기개선 루프, smart routing, cross-session 메모리 등 7가지 아키텍처 차별점.
 

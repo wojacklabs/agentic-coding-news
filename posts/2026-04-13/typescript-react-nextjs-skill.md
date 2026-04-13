@@ -7,7 +7,7 @@ title: "4,000라인 TypeScript + React + Next.js Agent Skill — 오픈소스"
 
 # 4,000라인 풀스택 Agent Skill
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 09:30 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 15:53 KST</div>
 
 > 현대 풀스택 개발 전체를 커버하는 **4,000라인 분량의 Claude Code Agent Skill**이 오픈소스로 공개되었습니다.
 

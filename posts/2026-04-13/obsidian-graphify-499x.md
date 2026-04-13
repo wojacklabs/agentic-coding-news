@@ -7,7 +7,7 @@ title: "Obsidian + Graphify로 Claude Code 토큰 499배 절감 — 오픈소스
 
 # 토큰 499배 절감 가이드
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 05:10 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 09:51 KST</div>
 
 > Obsidian 노트의 지식 그래프를 **Graphify**로 연결해 Claude Code 세션당 토큰을 499배 줄였다는 오픈소스 가이드가 공개되었습니다.
 

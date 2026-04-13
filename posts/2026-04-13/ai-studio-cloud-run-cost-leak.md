@@ -7,7 +7,7 @@ title: "Google AI Studio + Cloud Run 하루 만에 6,100만원 청구 — 치명
 
 # AI Studio Cloud Run 비용 폭탄 경고
 
-<div class="meta-line"><span class="tag tag-threads">Threads</span> #aithreads · 07:20 KST</div>
+<div class="meta-line"><span class="tag tag-threads">Threads</span> #aithreads · 12:52 KST</div>
 
 > Google AI Studio로 만든 앱을 Cloud Run에 배포한 후 단 하루에 6,100만 원의 Gemini API 비용이 청구된 사건이 공유되었습니다.
 

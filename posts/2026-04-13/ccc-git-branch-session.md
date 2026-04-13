@@ -7,7 +7,7 @@ title: "Claude Code Context (ccc) — git branch별 세션 자동 재개"
 
 # CCC — git 브랜치별 세션 자동 재개
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 05:10 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 09:51 KST</div>
 
 > 브랜치를 전환하면 해당 브랜치에서 작업하던 Claude Code 세션 컨텍스트를 자동으로 복원해주는 래퍼 도구 **ccc**가 공개되었습니다.
 

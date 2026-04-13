@@ -7,7 +7,7 @@ title: "MCP 서버로 Claude 토큰 사용량 50배 절감 — 지식 그래프 
 
 # MCP로 토큰 50배 절감
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 04:45 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 09:01 KST</div>
 
 > 지식 그래프를 구축하지 않고도 MCP 서버만으로 Claude 토큰 사용량을 50배 줄인 실전 기법이 공개되었습니다.
 

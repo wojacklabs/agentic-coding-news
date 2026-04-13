@@ -7,7 +7,7 @@ title: "$20,000 셋업 — 4× DGX Sparks + MiniMax M2.7 200K + OpenCode"
 
 # $20K 로컬 에이전틱 코딩 셋업
 
-<div class="meta-line"><span class="tag tag-threads">Threads</span> #aithreads · 09:30 KST</div>
+<div class="meta-line"><span class="tag tag-threads">Threads</span> #aithreads · 15:53 KST</div>
 
 > @sung.kim.mw가 공유한 $20,000 규모 로컬 에이전틱 코딩 셋업 — 4×DGX Sparks + MiniMax M2.7 200K 모델 + OpenCode 프런트엔드.
 

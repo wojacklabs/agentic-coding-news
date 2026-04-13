@@ -7,7 +7,7 @@ title: "Claude Cowork로 Google Drive 정리 4시간 — 실패 사례 공유"
 
 # Claude Cowork 4시간 실패담
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 04:23 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 06:51 KST</div>
 
 > 한 사용자가 Claude Cowork로 Google Drive를 재정리하려다 4시간 동안 실패한 상세 기록을 공유했습니다.
 

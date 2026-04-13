@@ -7,7 +7,7 @@ title: "Qwen 3.5 28B REAP — 오픈소스 코딩 모델 초기 성능 리뷰"
 
 # Qwen 3.5 28B 코딩 성능
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/LocalLLaMA · 04:23 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/LocalLLaMA · 06:51 KST</div>
 
 > r/LocalLLaMA에서 Qwen 3.5 28B(REAP 변형)의 코딩 초기 실사용 리뷰가 올라왔습니다.
 

@@ -7,7 +7,7 @@ title: "MiniMax-M2.7 NVFP4 on 2×RTX PRO 6000 Blackwell — 벤치마크 수치 
 
 # MiniMax-M2.7 Blackwell 벤치마크
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/LocalLLaMA · 07:20 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/LocalLLaMA · 12:52 KST</div>
 
 > 차세대 NVIDIA Blackwell 아키텍처(RTX PRO 6000)에서 MiniMax-M2.7을 **NVFP4 양자화**로 돌린 실측 벤치마크가 공개되었습니다(score 14).
 

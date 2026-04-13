@@ -7,7 +7,7 @@ title: "Lazyagent — 터미널에서 AI 에이전트 세션을 관찰하는 도
 
 # Lazyagent — 터미널 에이전트 모니터
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> 03:47 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> 03:51 KST</div>
 
 > 여러 AI 에이전트와 세션을 터미널 UI로 모니터링하는 오픈소스 도구 **Lazyagent**가 공개되었습니다.
 

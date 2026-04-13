@@ -7,7 +7,7 @@ title: "Claude Code를 Docker 컨테이너에서 격리 실행하는 zero-depend
 
 # Claude Code Docker 격리 실행
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 07:20 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 12:52 KST</div>
 
 > Claude Code를 Docker 컨테이너에서 격리 실행하는 zero-dependency CLI가 Windows/macOS/Linux 공통으로 공개되었습니다.
 

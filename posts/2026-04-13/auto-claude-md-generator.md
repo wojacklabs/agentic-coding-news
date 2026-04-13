@@ -7,7 +7,7 @@ title: "CLAUDE.md 자동 생성 커맨드 — 프로젝트 분석 후 맞춤 생
 
 # CLAUDE.md 자동 생성 커맨드
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 00:17 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 00:47 KST</div>
 
 > 프로젝트 코드를 분석하여 최적화된 CLAUDE.md를 자동 생성하는 Claude Code 커맨드가 Reddit에서 공유되었습니다.
 

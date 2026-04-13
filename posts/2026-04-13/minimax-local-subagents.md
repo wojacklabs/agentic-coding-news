@@ -7,7 +7,7 @@ title: "Minimax 2.7로 로컬에서 sub-agent 실행 성공"
 
 # 로컬 Minimax 2.7 Sub-Agent
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/LocalLLaMA · 03:47 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/LocalLLaMA · 03:51 KST</div>
 
 > Minimax 2.7 오픈 모델로 로컬에서 여러 sub-agent를 병렬 실행하는 시연이 r/LocalLLaMA에서 주목받고 있습니다(score 22).
 

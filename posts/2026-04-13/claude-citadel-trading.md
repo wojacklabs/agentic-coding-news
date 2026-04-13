@@ -7,7 +7,7 @@ title: "3년치 포트폴리오 데이터 연결 — Claude를 Citadel급 트레
 
 # 개인 포트폴리오 + Claude 트레이딩
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> 04:23 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> 06:51 KST</div>
 
 > 3년 이상의 포트폴리오 데이터를 Claude에 연결해 Citadel(세계 최대 헤지펀드) 수준의 트레이딩을 시도한 실험이 Reddit에서 공개되었습니다.
 

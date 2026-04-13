@@ -7,7 +7,7 @@ title: "MCP 서버로 1M+ LOC 코드베이스를 ~500라인 컨텍스트로 압�
 
 # 1M LOC → 500라인 MCP
 
-<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 07:20 KST</div>
+<div class="meta-line"><span class="tag tag-reddit">Reddit</span> r/ClaudeAI · 12:52 KST</div>
 
 > 100만 라인 이상의 대형 코드베이스를 Claude 컨텍스트에 ~500라인만 노출하면서도 작업 가능하게 만드는 MCP 서버가 Reddit에서 feedback을 받고 있습니다.
 
