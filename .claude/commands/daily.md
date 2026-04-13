@@ -151,15 +151,58 @@ stdout JSON에서 `candidates` 배열을 확인한다. 빈 배열이면 "오늘 
 
 ## Phase 8: Article write (LLM self-reasoning)
 
+### ⛔ 절대 금지 (fabrication 방지 핵심 규칙)
+
+1. **본문(`bodyMd`의 도입·요약·"실전 핵심" 등 fact 섹션)에는 출처에 없는 사실을 추가하지 말 것.**
+   - 출처에 등장하지 않는 인물·도구명·금액·날짜·수치·기능·코드 스니펫·인용문 일체 금지
+   - "X에 따르면", "여러 사용자가 공유한다" 같은 표현은 실제 그런 데이터가 candidate에 있을 때만
+   - 이 룰은 특히 본문 인용·예시 부분에 엄격 적용
+2. **DB 텍스트가 잘려있어 검증이 부족하면, 해당 candidate는 본문 인용 대상에서 제외한다.**
+   - URL을 알면 WebFetch로 원본을 가져와 추가 검증 후에만 사용
+3. **출처에 없는 일반 지식은 `<div class="context-block"><h4>관련 배경 지식</h4>` 또는 `<h4>왜 중요한가</h4>` 섹션 안에서만 작성.**
+   - 그 섹션 안의 LLM 분석·해설·용어 설명은 OK
+   - 단 그 안에서도 "이 도구는 X 기능이 있다"처럼 출처 사실로 보일 표현은 금지. "일반적으로", "보통", "유사 도구는" 등 hedging 명시
+4. **데이터 파이프라인이 수집하지 않은 source(현재 X/Threads는 DB에 0건)는 절대 source-link로 사용 금지.**
+   - 출처 표시는 candidate의 `source` 컬럼(`hn`/`reddit`/`rss` 등)과 정확히 일치해야 함
+
+### Phase 8 절차
+
 1. Phase 7의 candidates를 `src/phases/rank.ts`의 `buildArticlePrompt(candidates, DATE)` 형식으로 구성한다:
    - 각 candidate를 `[N] (source) score=S\ntitle\ntext(400자)\nurl: URL` 형태로 나열
    - 최대 30개
-2. 위 프롬프트의 지시에 따라 한국어 뉴스 기사를 직접 작성한다:
-   - 제목 (60자 이내)
-   - 요약 (1문장 TL;DR)
-   - 본문 (마크다운, 각 항목에 `[N](url)` 인용)
+2. 한국어 뉴스 기사를 작성한다 — **각 기사 1편마다 다음 단계를 모두 거친 뒤에 다음 기사로 넘어간다**:
+   - **(a) 작성**: 제목 (60자 이내), 요약 (1문장 TL;DR), 본문 (마크다운, 각 항목에 `[N](url)` 인용)
+   - **(b) 셀프 검증 (필수, 다음 기사 진행 전 차단)**:
+     1. 본문에 등장한 모든 사실(인물명, 숫자, 금액, 도구명, 기능, 코드, 인용문)을 한 줄씩 나열
+     2. 각 사실이 candidate text(또는 WebFetch 결과)의 어디에 등장하는지 한 줄로 매핑 확인
+     3. 매핑이 안 되는 항목이 1개라도 있으면 → 해당 항목을 **본문에서 제거**(또는 "관련 배경 지식" 섹션으로 hedging 표현으로 이동)
+     4. source-link href가 candidate URL과 정확히 일치하는지 확인
+   - **(c) 통과 후에만 다음 기사로**
 3. 결과를 `{"title":"...","summary":"...","bodyMd":"...","usedIndices":[1,3,5]}` JSON으로 생성한다.
 4. `parseArticle` 규칙으로 검증: title과 bodyMd가 비어있으면 안 된다. usedIndices의 각 인덱스는 1-based이며 candidates 배열에 매핑하여 postIds를 도출한다.
+
+### 본문 구조 권장
+
+```
+> 요약 (1문장)
+
+(원본 글 요약 1-2문단 — candidate text 범위 내에서만)
+
+<div class="context-block">
+<h4>출처 핵심 (원본에서 확인되는 사실만)</h4>
+- ...
+</div>
+
+<div class="context-block">
+<h4>왜 중요한가 (LLM 해석 OK — 단, 출처 사실로 보일 표현 금지)</h4>
+...
+</div>
+
+<div class="context-block">
+<h4>관련 배경 지식 (LLM 일반 지식 OK)</h4>
+...
+</div>
+```
 
 ---
 
