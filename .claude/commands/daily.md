@@ -55,26 +55,27 @@ Phase 0에서 Chrome MCP가 SKIP이면 이 Phase 전체를 건너뛴다.
 ### X pre-scan
 
 1. `tabs_create_mcp`로 새 탭 생성.
-2. `navigate`로 `https://x.com/home` 이동. 15초 대기.
-3. 스크롤 6회 수행:
+2. `navigate`로 `https://x.com/search?q=%22claude%20code%22&f=live` 이동 (Claude Code Deep 주제에 맞춘 검색 URL, src/lib/mcp.ts X_PLAN과 동기화). 15초 대기.
+3. 스크롤 10회 수행 (src/lib/mcp.ts SCROLL_BUDGET.preScanMax와 동기화):
    ```
    javascript_tool로 실행: window.scrollBy(0, window.innerHeight * 0.9)
    ```
-   각 스크롤 사이 1.2초 대기 (wait 또는 다음 호출까지 자연 지연).
-4. JS 스니펫 실행: Read 도구로 `src/sources/x.ts` 파일을 읽고, `X_SNIPPETS["x.timeline.v1"]`에 해당하는 IIFE 문자열 전체를 복사하여 `javascript_tool`에 전달한다.
+   각 스크롤 사이 1.2초 대기.
+4. JS 스니펫 실행: Read 도구로 `src/sources/x.ts` 파일을 읽고, `X_SNIPPETS["x.timeline.v1"]`(또는 검색 페이지용 `x.search.v1`)에 해당하는 IIFE 문자열 전체를 복사하여 `javascript_tool`에 전달한다.
    - 반환값은 `JSON.stringify(ExtractionResult[])` 형태.
    - JSON.parse하여 배열이 아니면 에러로 간주.
-5. 결과를 Write 도구로 `${RAW_DIR}/x-prescan.jsonl`에 저장 (한 줄에 하나의 JSON).
+5. **[필수] JSONL 저장**: 결과를 Write 도구로 `${RAW_DIR}/x-prescan.jsonl`에 저장 (한 줄에 하나의 JSON object). Phase 5에서 이 파일을 읽어 DB에 insert하므로 이 단계 스킵 불가.
 
 ### Threads pre-scan
 
 1. `tabs_create_mcp`로 새 탭 생성.
-2. `navigate`로 `https://www.threads.net/` 이동. 15초 대기.
-3. 스크롤 6회 (동일 방식).
+2. `navigate`로 `https://www.threads.net/search?q=claudecode&serp_type=tags` 이동 (Claude Code Deep 주제에 맞춘 #claudecode 태그 URL, src/lib/mcp.ts THREADS_PLAN과 동기화). 15초 대기.
+   - 만약 위 URL이 빈 페이지면 fallback: `https://www.threads.net/search?q=claude%20code&serp_type=default`
+3. 스크롤 8회 (src/lib/mcp.ts 동기화).
 4. Read 도구로 `src/sources/threads.ts`를 읽고, `THREADS_SNIPPETS["threads.foryou.v1"]` IIFE를 `javascript_tool`에 전달.
-5. 결과를 `${RAW_DIR}/threads-prescan.jsonl`에 저장.
+5. **[필수] JSONL 저장**: 결과를 Write 도구로 `${RAW_DIR}/threads-prescan.jsonl`에 저장. Phase 5가 이 파일을 먹는다.
 
-**실패 처리**: 어떤 소스든 navigate/javascript_tool이 15초 내 응답 없거나 에러 시, 해당 소스만 SKIP 처리하고 다음 소스로 진행.
+**실패 처리**: 어떤 소스든 navigate/javascript_tool이 15초 내 응답 없거나 에러 시, 해당 소스만 SKIP 처리하고 다음 소스로 진행. **JSONL 저장 단계 자체를 실패한 소스는 Phase 5에서 insert 되지 않으므로 Phase 8 본문에서 출처로 사용 금지.**
 
 ---
 
@@ -102,30 +103,47 @@ Phase 0에서 Chrome MCP SKIP이면 건너뛴다.
 ### X deep-scan (키워드당)
 
 1. `navigate`로 `https://x.com/search?q=${encodeURIComponent(keyword)}&f=live` 이동.
-2. 스크롤 4회.
+2. 스크롤 5회 (src/lib/mcp.ts SCROLL_BUDGET.deepScanPerKeywordMax 동기화).
 3. Read로 `src/sources/x.ts` 읽고 `X_SNIPPETS["x.search.v1"]` IIFE를 `javascript_tool`에 전달.
-4. 결과를 `${RAW_DIR}/x-deep.jsonl`에 append (Write).
+4. **[필수] JSONL append**: 결과를 `${RAW_DIR}/x-deep.jsonl`에 append (Write). 기존 내용 뒤에 새 JSON 라인을 이어 쓴다.
 
 ### Threads deep-scan (키워드당)
 
 1. `navigate`로 `https://www.threads.net/search?q=${encodeURIComponent(keyword)}&serp_type=default` 이동.
-2. 스크롤 4회.
+2. 스크롤 5회.
 3. Read로 `src/sources/threads.ts` 읽고 `THREADS_SNIPPETS["threads.search.v1"]` IIFE를 `javascript_tool`에 전달.
-4. 결과를 `${RAW_DIR}/threads-deep.jsonl`에 append.
+4. **[필수] JSONL append**: 결과를 `${RAW_DIR}/threads-deep.jsonl`에 append.
 
-**스크롤 누적 한도**: 소스당 pre-scan + deep-scan 합산 20회를 넘기면 즉시 해당 소스 중단.
+**스크롤 누적 한도**: 소스당 pre-scan + deep-scan 합산 SCROLL_BUDGET.perSourceMax(25) 회를 넘기면 즉시 해당 소스 중단. 키워드 개수: X 3개, Threads 2개.
 
 ---
 
-## Phase 5: Ingest MCP results (Bash)
+## Phase 5: Ingest MCP results (Bash, [필수])
 
-Chrome MCP에서 수집된 데이터가 있을 때만 실행:
+**Phase 2 또는 Phase 4에서 JSONL 파일을 하나라도 썼다면 이 Phase를 반드시 실행한다.** 건너뛰면 Phase 8에서 X/Threads source-link 사용 금지 (fabrication 방지 룰).
 
 ```bash
+ls -la ${RAW_DIR}/*.jsonl 2>/dev/null  # 먼저 파일 존재 확인
 bun run src/phases/ingest_mcp.ts ${RAW_DIR}
 ```
 
-JSONL 파일이 없으면 이 Phase를 건너뛴다.
+**성공 조건**: stdout에 `{"inserted": N, ...}` 형태의 JSON이 출력되고 `inserted >= 0`이며 에러 없음.
+
+**검증**:
+```bash
+bun -e "import{Database}from'bun:sqlite';
+Database.setCustomSQLite('/opt/homebrew/opt/sqlite/lib/libsqlite3.dylib');
+const db=new Database('db/app.db');
+const r=db.query(\"SELECT source,COUNT(*) as c FROM posts WHERE fetched_at > strftime('%s','now','-1 hour') GROUP BY source\").all();
+console.log(JSON.stringify(r));
+db.close();"
+```
+최근 1시간 insert에 `x` 또는 `threads` source 카운트가 0보다 크면 Phase 8에서 해당 source-link를 본문으로 사용 가능.
+
+**실패 처리**:
+- ingest_mcp 에러 → 1회 재시도
+- 2회 실패 시 이 tick에서 X/Threads source-link 사용 금지 상태로 표시하고 Phase 6 계속
+- JSONL 파일이 하나도 없으면 Phase 5 자체 건너뛰기 (Chrome MCP 전체 SKIP된 경우)
 
 ---
 
@@ -162,8 +180,11 @@ stdout JSON에서 `candidates` 배열을 확인한다. 빈 배열이면 "오늘 
 3. **출처에 없는 일반 지식은 `<div class="context-block"><h4>관련 배경 지식</h4>` 또는 `<h4>왜 중요한가</h4>` 섹션 안에서만 작성.**
    - 그 섹션 안의 LLM 분석·해설·용어 설명은 OK
    - 단 그 안에서도 "이 도구는 X 기능이 있다"처럼 출처 사실로 보일 표현은 금지. "일반적으로", "보통", "유사 도구는" 등 hedging 명시
-4. **데이터 파이프라인이 수집하지 않은 source(현재 X/Threads는 DB에 0건)는 절대 source-link로 사용 금지.**
-   - 출처 표시는 candidate의 `source` 컬럼(`hn`/`reddit`/`rss` 등)과 정확히 일치해야 함
+4. **source-link는 이번 tick에서 DB에 insert된 post만 사용 가능.**
+   - `hn`/`reddit`/`rss`: Phase 1에서 insert됐으면 OK
+   - `x`/`threads`: **Phase 5 ingest_mcp가 성공**하고 Phase 5 검증 쿼리에서 해당 source 카운트 > 0일 때만 OK
+   - Phase 5가 skip/실패한 tick에서는 X/Threads source-link 절대 사용 금지 (과거 tick 데이터가 DB에 있어도 이번 tick에서 insert 안 됐으면 사용 금지 — 이전 fabrication 재발 방지)
+   - 출처 표시(meta-line의 <span class="tag tag-{source}">)는 candidate의 `source` 컬럼과 정확히 일치해야 함
 
 ### Phase 8 절차
 
