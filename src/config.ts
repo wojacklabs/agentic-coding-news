@@ -11,24 +11,19 @@ function envList(key: string, fallback: string[]): string[] {
 }
 
 export const RSS_FEEDS: string[] = envList("RSS_FEEDS", [
+  "https://www.anthropic.com/news/rss.xml",
   "https://simonwillison.net/atom/everything/",
   "https://www.latent.space/feed",
-  "https://karpathy.github.io/feed.xml",
-  "https://lilianweng.github.io/index.xml",
-  "https://blog.langchain.dev/rss/",
 ]);
 
 export const HN_KEYWORDS: string[] = envList("HN_KEYWORDS", [
-  "agentic",
   "claude code",
-  "cursor",
-  "copilot",
-  "llm coding",
+  "claude agent",
+  "claude skill",
+  "claude mcp",
+  "anthropic claude",
 ]);
 
 export const REDDIT_SUBS: string[] = envList("REDDIT_SUBS", [
   "ClaudeAI",
-  "LocalLLaMA",
-  "singularity",
-  "ChatGPTCoding",
 ]);

@@ -31,7 +31,12 @@ export function buildArticlePrompt(
     )
     .join("\n---\n");
 
-  return `You are a tech news editor for an agentic-coding daily newsletter.
+  return `You are a tech news editor for a Claude Code deep-dive daily newsletter.
+The scope is strictly Claude Code power usage: Skills, Subagents, Hooks, MCP servers,
+CLAUDE.md patterns, settings.json tuning, slash commands, plugins, TUI extensions,
+session/context management, performance/bug reports, team ops patterns, workflow templates.
+Out of scope: generic Cursor/Codex/Copilot news, generic LLM benchmarks, AI ethics,
+trading/entrepreneurship use cases, model releases not tied to Claude Code usage.
 Date: ${dateStr}. Below are ${Math.min(candidates.length, MAX_CANDIDATES)} curated posts.
 
 Write a Korean-language daily article:

@@ -157,7 +157,7 @@ export const X_PLAN: NavigationPlan = {
   preScanSteps: [
     {
       kind: "navigate",
-      url: "https://x.com/home",
+      url: "https://x.com/search?q=%22claude%20code%22&f=live",
       waitMs: TIMEOUTS.navigateMs,
     },
     {
@@ -197,7 +197,7 @@ export const THREADS_PLAN: NavigationPlan = {
   preScanSteps: [
     {
       kind: "navigate",
-      url: "https://www.threads.net/search?q=aithreads&serp_type=tags",
+      url: "https://www.threads.net/search?q=claudecode&serp_type=tags",
       waitMs: TIMEOUTS.navigateMs,
     },
     {

@@ -16,7 +16,7 @@ export function buildKeywordPrompt(texts: string[]): string {
     .join("\n---\n");
   return [
     `Below are up to 50 social media posts scraped in this tick.`,
-    `Pick exactly ${KEYWORD_COUNT} search keywords that would find more related agentic-coding / AI-engineering content.`,
+    `Pick exactly ${KEYWORD_COUNT} search keywords that would find more Claude Code deep-usage content (Skills, Subagents, Hooks, MCP, CLAUDE.md, settings.json, slash commands, plugins, ops patterns).`,
     `Rules:`,
     `- lowercase, 2-20 chars, ASCII or Korean Hangul only`,
     `- no generic words (ai, news, code, update, new)`,

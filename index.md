@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Agentic Coding News
+title: Claude Code Deep
 ---
 
 # Latest
