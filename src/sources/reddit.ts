@@ -2,6 +2,9 @@ import type { Post } from "../lib/types.ts";
 
 const UA = "agentic-coding-news/0.1 (+reddit; bun)";
 const MAX_TEXT_CHARS = 2000;
+/** Freshness window: only accept posts published within this many days. */
+const FRESHNESS_WINDOW_DAYS = 3;
+const FRESHNESS_WINDOW_SEC = FRESHNESS_WINDOW_DAYS * 86400;
 
 /** Reddit child.data shape (fields we use). */
 export interface RedditChildData {
@@ -110,11 +113,14 @@ function stripT3(id: string): string {
   return id.startsWith("t3_") ? id.slice(3) : id;
 }
 
-/** Convert a Reddit child.data to a Post. Returns null if text is empty. */
+/** Convert a Reddit child.data to a Post. Returns null if text is empty or post is stale. */
 export function normalizeRedditChild(
   data: RedditChildData,
   nowSec: number,
 ): Post | null {
+  // Reject posts older than FRESHNESS_WINDOW_DAYS.
+  if (nowSec - Math.floor(data.created_utc) > FRESHNESS_WINDOW_SEC) return null;
+
   const selftext = data.selftext?.trim() ?? "";
   const title = data.title?.trim() ?? "";
 

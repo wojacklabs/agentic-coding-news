@@ -3,6 +3,9 @@ import type { Post } from "../lib/types.ts";
 const UA = "agentic-coding-news/0.1 (+hn)";
 const MAX_TEXT_CHARS = 2000;
 const HN_BASE = "https://hn.algolia.com/api/v1/search";
+/** Freshness window: only accept posts published within this many days. */
+const FRESHNESS_WINDOW_DAYS = 3;
+const FRESHNESS_WINDOW_SEC = FRESHNESS_WINDOW_DAYS * 86400;
 
 /** Algolia hit shape (fields we use). */
 export interface AlgoliaHit {
@@ -40,11 +43,15 @@ export async function fetchHnPosts(opts: HnFetchOpts = {}): Promise<Post[]> {
   const timeoutMs = opts.timeoutMs ?? 30_000;
   const keywords = opts.keywords ?? [];
 
+  // API-level freshness filter: reject stories older than FRESHNESS_WINDOW_DAYS.
+  const cutoffSec = Math.floor(Date.now() / 1000) - FRESHNESS_WINDOW_SEC;
+  const numericFilter = `numericFilters=${encodeURIComponent(`created_at_i>${cutoffSec}`)}`;
+
   const urls: string[] = [
-    `${HN_BASE}?tags=front_page&hitsPerPage=${hitsPerPage}`,
+    `${HN_BASE}?tags=front_page&hitsPerPage=${hitsPerPage}&${numericFilter}`,
     ...keywords.map(
       (kw) =>
-        `${HN_BASE}?query=${encodeURIComponent(kw)}&tags=story&hitsPerPage=${hitsPerPage}`,
+        `${HN_BASE}?query=${encodeURIComponent(kw)}&tags=story&hitsPerPage=${hitsPerPage}&${numericFilter}`,
     ),
   ];
 
@@ -89,8 +96,11 @@ async function fetchAlgolia(
   }
 }
 
-/** Convert an Algolia hit to a Post. Returns null if text is empty. */
+/** Convert an Algolia hit to a Post. Returns null if text is empty or post is stale. */
 export function normalizeHnHit(hit: AlgoliaHit, nowSec: number): Post | null {
+  // Reject stories older than FRESHNESS_WINDOW_DAYS (defense-in-depth; API filter is primary).
+  if (nowSec - hit.created_at_i > FRESHNESS_WINDOW_SEC) return null;
+
   const title = hit.title?.trim() ?? null;
   const storyText = hit.story_text?.trim().slice(0, MAX_TEXT_CHARS) ?? "";
   const text = storyText.length > 0 ? storyText : (title ?? "");

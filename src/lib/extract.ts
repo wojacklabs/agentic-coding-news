@@ -1,6 +1,10 @@
 import type { Post, Source } from "./types.ts";
 import type { ExtractionResult } from "./mcp.ts";
 
+/** Freshness window: only accept items published within this many days. */
+const FRESHNESS_WINDOW_DAYS = 3;
+const FRESHNESS_WINDOW_SEC = FRESHNESS_WINDOW_DAYS * 86400;
+
 /**
  * Normalise an ISO 8601 string / unix seconds / unix milliseconds into
  * unix seconds. Returns `null` when the input is unusable.
@@ -38,6 +42,8 @@ export function coerceRawToPost(
   if (text === "") return null;
   const posted = parsePostedAt(raw.postedAt);
   if (posted === null) return null;
+  // Reject items older than FRESHNESS_WINDOW_DAYS.
+  if (fetchedAtSec - posted > FRESHNESS_WINDOW_SEC) return null;
   const score =
     typeof raw.rawScore === "number" && Number.isFinite(raw.rawScore)
       ? raw.rawScore

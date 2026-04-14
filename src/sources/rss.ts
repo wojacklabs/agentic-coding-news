@@ -5,6 +5,9 @@ import type { Post } from "../lib/types.ts";
 const DEFAULT_TIMEOUT_MS = 30_000;
 const MAX_TEXT_CHARS = 2000;
 const UA = "agentic-coding-news/0.1 (+rss)";
+/** Freshness window: only accept items published within this many days. */
+const FRESHNESS_WINDOW_DAYS = 3;
+const FRESHNESS_WINDOW_SEC = FRESHNESS_WINDOW_DAYS * 86400;
 
 const parser = new XMLParser({
   ignoreAttributes: false,
@@ -143,7 +146,11 @@ export function normalizeRssItem(
   } catch {
     return null;
   }
-  const posted = parseDate(raw.published) ?? nowSec;
+  const parsed = parseDate(raw.published);
+  // Reject items older than FRESHNESS_WINDOW_DAYS. If published is missing,
+  // we fall back to nowSec (treated as fresh) — same behaviour as before.
+  if (parsed !== null && nowSec - parsed > FRESHNESS_WINDOW_SEC) return null;
+  const posted = parsed ?? nowSec;
   const rawText = raw.content ?? raw.summary ?? raw.title ?? "";
   const stripped = stripHtml(rawText).slice(0, MAX_TEXT_CHARS);
   const title = raw.title ? stripHtml(raw.title) : null;

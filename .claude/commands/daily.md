@@ -165,6 +165,20 @@ bun run src/phases/dedupe.ts
 
 stdout JSON에서 `candidates` 배열을 확인한다. 빈 배열이면 "오늘 새로운 뉴스 없음"으로 기록하고 Phase 8-10을 건너뛴다.
 
+### ⏰ Freshness 규칙 (엄격)
+
+후보 선정 쿼리는 **반드시 `posted_at` 기준 3일 이내**로 제한한다:
+```sql
+WHERE posted_at > strftime('%s', 'now', '-3 days')
+  AND fetched_at > strftime('%s', 'now', '-3 hours')
+```
+
+- `posted_at` = 원문 발행 시각 (publish time) — Reddit `created_utc`, HN Algolia `created_at_i`, X/Threads `postedAt` 등
+- `fetched_at` = 우리가 수집한 시각 — 이것만으로는 신선도 보장 불가 (과거 고득점 글이 keyword 검색에 잡힐 수 있음)
+- 두 조건 모두 만족해야 후보. **수집 단계에서 이미 3일 필터가 들어가지만(<code>FRESHNESS_WINDOW_DAYS=3</code> in sources/*.ts), 방어층으로 후보 쿼리에도 명시.**
+
+Scope: 오늘(today)·어제·그제만 발행 대상. 그 이전 글은 "이미 뉴스가 아님"으로 간주.
+
 ---
 
 ## Phase 8: Article write (LLM self-reasoning)
@@ -189,6 +203,11 @@ stdout JSON에서 `candidates` 배열을 확인한다. 빈 배열이면 "오늘 
    - candidate의 `url` 필드는 external URL(github, blog 등)을 가리키므로, HN discussion은 `source_id` 기반으로 별도 표기 필요
    - 형식: `<a href="https://news.ycombinator.com/item?id=<source_id>" class="source-link">news.ycombinator.com/item?id=<source_id></a>`
    - 태그가 HN인데 본문 링크가 외부만 있으면 독자가 HN 원문(댓글 포함) 검증 불가 — 이전에 사용자 지적으로 드러난 누락
+6. **기사 작성 전 candidate의 `posted_at`이 오늘(today)·어제·그제 범위인지 재확인.**
+   - Phase 7에서 필터했더라도 작성 시 한 번 더 검증
+   - 3일 초과면 절대 기사화 금지. HN Algolia keyword 검색은 시간 제한이 있어도 edge case(서버 시각 드리프트)가 생길 수 있음
+   - 예: 오늘 `TZ=Asia/Seoul date "+%s"` - candidate.posted_at이 259200(3일) 초과면 reject
+   - 과거에 이 체크를 빠뜨려 6개월 전 "Claude Skills 런칭"(2025-10-16)을 오늘 뉴스처럼 발행한 사고 발생 → 방지
 
 ### Phase 8 절차
 
