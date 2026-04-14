@@ -62,6 +62,8 @@ Phase 0에서 Chrome MCP가 SKIP이면 이 Phase 전체를 건너뛴다.
    ```
    각 스크롤 사이 1.2초 대기.
 4. JS 스니펫 실행: Read 도구로 `src/sources/x.ts` 파일을 읽고, `X_SNIPPETS["x.timeline.v1"]`(또는 검색 페이지용 `x.search.v1`)에 해당하는 IIFE 문자열 전체를 복사하여 `javascript_tool`에 전달한다.
+   - **⚠️ 간이 JS 직접 작성 절대 금지.** 반드시 `X_SNIPPETS`의 IIFE 문자열 그대로 사용할 것
+   - 정식 스니펫은 ad·promoted 필터링, quoted tweet 구분, **like/retweet/reply/view count를 `rawScore`로 합산** 등이 포함됨 (직접 작성하면 score=0이 되어 Phase 7 정렬에서 X가 꼴찌로 밀림)
    - 반환값은 `JSON.stringify(ExtractionResult[])` 형태.
    - JSON.parse하여 배열이 아니면 에러로 간주.
 5. **[필수] JSONL 저장**: 결과를 Write 도구로 `${RAW_DIR}/x-prescan.jsonl`에 저장 (한 줄에 하나의 JSON object). Phase 5에서 이 파일을 읽어 DB에 insert하므로 이 단계 스킵 불가.
@@ -170,12 +172,13 @@ stdout JSON에서 `candidates` 배열을 확인한다. 빈 배열이면 "오늘 
 후보 선정 쿼리는 **반드시 `posted_at` 기준 3일 이내**로 제한한다:
 ```sql
 WHERE posted_at > strftime('%s', 'now', '-3 days')
-  AND fetched_at > strftime('%s', 'now', '-3 hours')
+ORDER BY score DESC
+LIMIT 30
 ```
 
 - `posted_at` = 원문 발행 시각 (publish time) — Reddit `created_utc`, HN Algolia `created_at_i`, X/Threads `postedAt` 등
-- `fetched_at` = 우리가 수집한 시각 — 이것만으로는 신선도 보장 불가 (과거 고득점 글이 keyword 검색에 잡힐 수 있음)
-- 두 조건 모두 만족해야 후보. **수집 단계에서 이미 3일 필터가 들어가지만(<code>FRESHNESS_WINDOW_DAYS=3</code> in sources/*.ts), 방어층으로 후보 쿼리에도 명시.**
+- **`fetched_at` 조건은 쓰지 말 것.** 수집 단계에서 이미 3일 필터가 들어가고(<code>FRESHNESS_WINDOW_DAYS=3</code> in sources/*.ts + extract.ts), 중복 글은 `insertPosts`가 `fetched_at` 갱신 없이 skip하므로 `fetched_at > now-Xh` 조건을 걸면 이전 tick에 이미 수집된 Reddit·X 고득점 글이 부당하게 탈락(과거 사고: Reddit 1820점 글이 누락되고 HN만 6건 선정)
+- 정렬은 순수 `score DESC`. 모든 source가 동일 score 기준으로 공정 경쟁
 
 Scope: 오늘(today)·어제·그제만 발행 대상. 그 이전 글은 "이미 뉴스가 아님"으로 간주.
 
