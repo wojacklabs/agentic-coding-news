@@ -185,6 +185,10 @@ stdout JSON에서 `candidates` 배열을 확인한다. 빈 배열이면 "오늘 
    - `x`/`threads`: **Phase 5 ingest_mcp가 성공**하고 Phase 5 검증 쿼리에서 해당 source 카운트 > 0일 때만 OK
    - Phase 5가 skip/실패한 tick에서는 X/Threads source-link 절대 사용 금지 (과거 tick 데이터가 DB에 있어도 이번 tick에서 insert 안 됐으면 사용 금지 — 이전 fabrication 재발 방지)
    - 출처 표시(meta-line의 <span class="tag tag-{source}">)는 candidate의 `source` 컬럼과 정확히 일치해야 함
+5. **HN source인 경우 본문 마지막에 HN discussion 링크를 반드시 함께 표기.**
+   - candidate의 `url` 필드는 external URL(github, blog 등)을 가리키므로, HN discussion은 `source_id` 기반으로 별도 표기 필요
+   - 형식: `<a href="https://news.ycombinator.com/item?id=<source_id>" class="source-link">news.ycombinator.com/item?id=<source_id></a>`
+   - 태그가 HN인데 본문 링크가 외부만 있으면 독자가 HN 원문(댓글 포함) 검증 불가 — 이전에 사용자 지적으로 드러난 누락
 
 ### Phase 8 절차
 

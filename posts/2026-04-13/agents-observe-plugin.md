@@ -56,4 +56,5 @@ title: "Agents Observe — Claude Code Hooks 기반 실시간 멀티에이전트
 <h4>관련 배경 지식</h4>
 <p><strong>Claude Code Hooks</strong>: 일반적으로 PreToolUse, PostToolUse, UserPromptSubmit 등 이벤트 시점에 외부 스크립트를 호출하는 메커니즘. stdin으로 raw event JSON을 받아 사용자가 임의 처리 가능.</p>
 <p><strong>원문</strong>: <a href="https://github.com/simple10/agents-observe" class="source-link">github.com/simple10/agents-observe</a></p>
+<p><strong>HN discussion</strong>: <a href="https://news.ycombinator.com/item?id=47602986" class="source-link">news.ycombinator.com/item?id=47602986</a></p>
 </div>

@@ -48,4 +48,5 @@ title: "Simon Willison — Claude Skills가 MCP보다 더 큰 일일 수 있다"
 <h4>관련 배경 지식</h4>
 <p><strong>Skills와 MCP의 상보성 여부</strong>: Willison은 둘 중 하나가 이긴다기보다 각자 다른 유스케이스에 적합할 것으로 보이는 관찰을 제시합니다. 결론이 난 상태는 아니며, 커뮤니티의 실제 사용 데이터가 쌓이면서 자리를 잡을 가능성이 큽니다.</p>
 <p><strong>원문</strong>: <a href="https://simonwillison.net/2025/Oct/16/claude-skills/" class="source-link">simonwillison.net/2025/Oct/16/claude-skills/</a></p>
+<p><strong>HN discussion</strong>: <a href="https://news.ycombinator.com/item?id=45619537" class="source-link">news.ycombinator.com/item?id=45619537</a></p>
 </div>

@@ -52,4 +52,5 @@ title: "claudeskills.cc — Anthropic과 무관한 제3자 'Agent Skill Studio' 
 <h4>관련 배경 지식</h4>
 <p><strong>"Skill portability"의 의미 차이(일반)</strong>: Anthropic 공식 Skills는 "Claude Apps · Claude Code · API 간 포팅"을 포터빌리티로 정의합니다. Agent Skill Studio가 말하는 "100% Model portability"는 서로 다른 모델 벤더(Claude·GPT·Gemini 등) 간 호환을 뜻합니다 — 유사 용어지만 범위가 다릅니다.</p>
 <p><strong>원문</strong>: <a href="https://claudeskills.cc" class="source-link">claudeskills.cc</a></p>
+<p><strong>HN discussion</strong>: <a href="https://news.ycombinator.com/item?id=45701622" class="source-link">news.ycombinator.com/item?id=45701622</a></p>
 </div>

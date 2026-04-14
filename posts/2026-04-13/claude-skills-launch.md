@@ -50,4 +50,5 @@ title: "Claude Agent Skills 공식 런칭 — Apps / Developer Platform / Claude
 <h4>관련 배경 지식</h4>
 <p><strong>Skill vs MCP</strong>: 유사 도구로 MCP 서버가 있으나, 두 방식의 자리매김에 대해서는 <a href="https://simonwillison.net/2025/Oct/16/claude-skills/" class="source-link">Simon Willison의 분석</a>이 함께 주목받고 있습니다(별도 기사 참조).</p>
 <p><strong>공식 출처</strong>: <a href="https://www.anthropic.com/news/skills" class="source-link">Anthropic 공식 발표</a> (현재 <a href="https://claude.com/blog/skills" class="source-link">claude.com/blog/skills</a>로 리다이렉트)</p>
+<p><strong>HN discussion</strong>: <a href="https://news.ycombinator.com/item?id=45607117" class="source-link">news.ycombinator.com/item?id=45607117</a></p>
 </div>

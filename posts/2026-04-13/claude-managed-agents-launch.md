@@ -54,4 +54,5 @@ title: "Claude Managed Agents — 클라우드 호스팅 에이전트 인프라 
 <h4>관련 배경 지식</h4>
 <p><strong>Research Preview vs GA</strong>: 일반적으로 Anthropic 신규 제품은 Research Preview → GA 순서. Preview 단계에서는 SLA·요금·기능 변경 가능성 있음.</p>
 <p><strong>원문</strong>: <a href="https://claude.com/blog/claude-managed-agents" class="source-link">claude.com/blog/claude-managed-agents</a></p>
+<p><strong>HN discussion</strong>: <a href="https://news.ycombinator.com/item?id=47693047" class="source-link">news.ycombinator.com/item?id=47693047</a></p>
 </div>

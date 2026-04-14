@@ -60,4 +60,5 @@ openswarm</code></pre>
 <p><strong>LanceDB</strong>: 일반적으로 컬럼지향 벡터 데이터베이스. 임베딩 검색에 사용.</p>
 <p><strong>Xenova embeddings</strong>: Transformers.js 기반 임베딩 라이브러리, 로컬 실행.</p>
 <p><strong>원문</strong>: <a href="https://github.com/Intrect-io/OpenSwarm" class="source-link">github.com/Intrect-io/OpenSwarm</a></p>
+<p><strong>HN discussion</strong>: <a href="https://news.ycombinator.com/item?id=47160980" class="source-link">news.ycombinator.com/item?id=47160980</a></p>
 </div>

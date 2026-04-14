@@ -52,4 +52,5 @@ npx skills add https://github.com/VibiumDev/vibium --skill vibe-check</code></pr
 <h4>관련 배경 지식</h4>
 <p><strong><code>claude mcp add</code></strong>: Claude Code CLI에서 MCP 서버를 등록하는 표준 명령. 일반적으로 <code>-- npx -y PACKAGE</code> 형태가 npm 패키지 즉석 실행 패턴으로 흔히 쓰입니다.</p>
 <p><strong>원문</strong>: <a href="https://github.com/VibiumDev/vibium" class="source-link">github.com/VibiumDev/vibium</a></p>
+<p><strong>HN discussion</strong>: <a href="https://news.ycombinator.com/item?id=46377597" class="source-link">news.ycombinator.com/item?id=46377597</a></p>
 </div>

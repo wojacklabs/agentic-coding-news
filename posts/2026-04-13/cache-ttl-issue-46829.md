@@ -70,4 +70,5 @@ title: "GitHub Issue #46829 — Claude Code cache TTL 1h → 5m 전환 논쟁, A
 <p><strong>Prompt cache 요율 구조(일반)</strong>: Anthropic 공식 가격표는 cache write(TTL 등급별 차등)와 cache read를 구분합니다. 유사 상품 전반적으로 cache read는 일반 input의 1/10 수준으로 저렴하게 책정되는 것이 일반적입니다.</p>
 <p><strong>JSONL 로그 활용</strong>: 일반적으로 Claude Code 세션 로그는 <code>~/.claude/projects/</code> 하위에 JSONL로 저장되며, <code>cache_creation_input_tokens</code> / <code>cache_read_input_tokens</code> 필드로 TTL 분포를 직접 집계할 수 있습니다.</p>
 <p><strong>원문</strong>: <a href="https://github.com/anthropics/claude-code/issues/46829" class="source-link">github.com/anthropics/claude-code/issues/46829</a></p>
+<p><strong>HN discussion</strong>: <a href="https://news.ycombinator.com/item?id=47736476" class="source-link">news.ycombinator.com/item?id=47736476</a></p>
 </div>
